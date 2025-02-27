@@ -1,5 +1,5 @@
-         - name: Node.js environment
-  uses: actions/setup-node@v4.2.0
+Name: Node.js
+ uses actions/setup-node@v4.2.
   with:
     always: # optional, is false
     node-version: # optional
