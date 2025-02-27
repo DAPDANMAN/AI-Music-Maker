@@ -1,0 +1,40 @@
+import { Button } from '@/components/ui/button';
+import { motion } from 'framer-motion';
+import { Card, CardContent } from '@/components/ui/card';
+import { Play } from 'lucide-react';
+
+const MotionTitle = motion.h1;
+const MotionParagraph = motion.p;
+const MotionPlayIcon = motion.div;
+
+const transitionProps = { duration: 1 };
+const fadeInProps = { initial: { opacity: 0 }, animate: { opacity: 1 }, transition: transitionProps };
+const slideInProps = { initial: { opacity: 0, y: -50 }, animate: { opacity: 1, y: 0 }, transition: { ...transitionProps, duration: 1 } };
+
+export default function Homepage() {
+  return (
+    <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center p-10">
+      <MotionTitle className="text-5xl font-bold mb-5 text-center" {...slideInProps}>
+        World's Songwriting Cheat Code
+      </MotionTitle>
+      
+      <MotionParagraph className="text-lg text-center mb-10" {...fadeInProps} transition={{ delay: 1, ...transitionProps }}>
+        AI-Powered Studio. Instant Hit Songs. No Instruments. No Training.
+      </MotionParagraph>
+
+      <Card className="w-full max-w-md text-center bg-gradient-to-r from-purple-700 to-blue-600 rounded-2xl shadow-2xl">
+        <CardContent className="p-10">
+          <MotionPlayIcon initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 1.2 }}>
+            <Play className="w-16 h-16 mx-auto text-white mb-5 animate-pulse" />
+          </MotionPlayIcon>
+          
+          <p className="text-xl mb-5">
+            Create Your First Studio-Quality Track in Seconds
+          </p>
+          
+          <Button className="bg-white text-black font-bold hover:bg-gray-200">Start Creating</Button>
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
